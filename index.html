@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour Toi ❤️</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #fce4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .heart-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+    }
+
+    .photo {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 5px solid white;
+      border-radius: 20%;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transform: rotate(var(--angle));
+      transition: transform 0.3s ease;
+    }
+
+    /* Partie supérieure arrondie */
+    .photo:nth-child(1) { top: 30px; left: 180px; --angle: -10deg; }
+    .photo:nth-child(2) { top: 30px; left: 300px; --angle: 10deg; }
+
+    /* Milieu gauche et droite */
+    .photo:nth-child(3) { top: 100px; left: 110px; --angle: -25deg; }
+    .photo:nth-child(4) { top: 100px; left: 370px; --angle: 25deg; }
+
+    .photo:nth-child(5) { top: 200px; left: 80px; --angle: -10deg; }
+    .photo:nth-child(6) { top: 200px; left: 400px; --angle: 10deg; }
+
+    .photo:nth-child(7) { top: 300px; left: 120px; --angle: -5deg; }
+    .photo:nth-child(8) { top: 300px; left: 360px; --angle: 5deg; }
+
+    /* Pointe du cœur - rapprochées au centre */
+    .photo:nth-child(9) { top: 420px; left: 240px; --angle: -5deg; }
+    .photo:nth-child(10) { top: 420px; left: 300px; --angle: 5deg; }
+
+    .center-heart {
+      position: absolute;
+      top: 240px;
+      left: 240px;
+      font-size: 120px;
+      color: red;
+      animation: pulse 1.2s infinite;
+      z-index: 10;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* Message flottant */
+    .popup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+      }
+  
+      .popup-content {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 500px;
+        animation: fadeIn 0.6s ease;
+      }
+  
+      .popup-content h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+  
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+  
+      .btn {
+        padding: 15px 25px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative;
+      }
+  
+      .btn-yes {
+        background-color: #ff4081;
+        color: white;
+      }
+  
+      .btn-no {
+        background-color: #ccc;
+        color: black;
+      }
+  
+      .icon {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        animation: bounce 1s infinite;
+      }
+  
+      .icon.no {
+        animation: wiggle 1s infinite;
+      }
+  
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+      }
+  
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+      }
+  
+      @keyframes wiggle {
+        0%, 100% { transform: translateX(-50%) rotate(0deg); }
+        25% { transform: translateX(-50%) rotate(-10deg); }
+        75% { transform: translateX(-50%) rotate(10deg); }
+      }
+  </style>
+</head>
+<body>
+
+<div class="heart-container">
+  <!-- Photos : remplace les liens par les tiennes -->
+  <img src="images/image10.jpeg" class="photo" alt="photo1">
+  <img src="images/image2.jpeg" class="photo" alt="photo2">
+  <img src="images/image3.jpeg" class="photo" alt="photo3">
+  <img src="images/image4.jpeg" class="photo" alt="photo4">
+  <img src="images/image5.jpeg" class="photo" alt="photo5">
+  <img src="images/image6.jpeg" class="photo" alt="photo6">
+  <img src="images/image7.jpeg" class="photo" alt="photo7">
+  <img src="images/image8.jpeg" class="photo" alt="photo8">
+  <img src="images/image1.jpeg" style="margin-top: -4%;margin-left: -10%" class="photo" alt="photo9">
+  <img src="images/image9.jpeg" class="photo" alt="photo10">
+
+  <!-- Grand cœur rouge central -->
+  <div class="center-heart" onclick="showPopup()">❤️</div>
+</div>
+<!-- Message Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Mademoiselle Gole Fidèle Messie,<br>veux-tu être ma copine ? 💖</h2>
+      <div class="buttons">
+        <button class="btn btn-yes" onclick="goToWhatsApp('oui')">
+            <i class="fas fa-hand-point-up icon yes"></i>
+            Oui
+          </button>
+          <button class="btn btn-no" onclick="goToWhatsApp('non')">
+            <i class="fas fa-hand-point-up icon no"></i>
+            Non
+          </button>
+          
+      </div>
+    </div>
+  </div>
+  
+  <script>
+
+        function showPopup() {
+          document.getElementById("popup").style.display = "flex";
+        }
+      
+        // Facultatif : pour fermer si besoin
+        document.querySelector('.btn-no').addEventListener('click', () => {
+          document.getElementById("popup").style.display = "none";
+        });
+      
+        // Facultatif : tu peux aussi ajouter une réaction au bouton Oui
+        document.querySelector('.btn-yes').addEventListener('click', () => {
+          alert("❤️ Merci mon cœur ! Je suis l'homme le plus heureux !");
+          document.getElementById("popup").style.display = "none";
+        });
+        function goToWhatsApp(response) {
+            const baseURL = "https://wa.me/225505883696"; // 225 = Côte d'Ivoire
+            const message = encodeURIComponent(
+              response === "oui"
+                ? "Oui, je veux bien être ta copine 🥰"
+                : "Non, mais merci pour le message 💌"
+            );
+            window.location.href = `${baseURL}?text=${message}`;
+          }
+          
+      </script>
+      
+
+</body>
+</html>
