@@ -148,35 +148,38 @@
         75% { transform: translateX(-50%) rotate(10deg); }
       }
   </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </head>
 <body>
 
 <div class="heart-container">
   <!-- Photos : remplace les liens par les tiennes -->
-  <img src="images/image10.jpeg" class="photo" alt="photo1">
-  <img src="images/image2.jpeg" class="photo" alt="photo2">
-  <img src="images/image3.jpeg" class="photo" alt="photo3">
-  <img src="images/image4.jpeg" class="photo" alt="photo4">
-  <img src="images/image5.jpeg" class="photo" alt="photo5">
-  <img src="images/image6.jpeg" class="photo" alt="photo6">
-  <img src="images/image7.jpeg" class="photo" alt="photo7">
-  <img src="images/image8.jpeg" class="photo" alt="photo8">
-  <img src="images/image1.jpeg" style="margin-top: -4%;margin-left: -10%" class="photo" alt="photo9">
-  <img src="images/image9.jpeg" class="photo" alt="photo10">
+  <img  data-aos="fade-left" data-aos-duration="1000" data-aos-once="false"src="images/image10.jpeg" class="photo" alt="photo1">
+  <img data-aos="fade-up-left" data-aos-duration="1000" data-aos-once="false" src="images/image2.jpeg" class="photo" alt="photo2">
+  <img data-aos="flip-up" data-aos-duration="1000" data-aos-once="false" src="images/image3.jpeg" class="photo" alt="photo3">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="zoom-in-up" src="images/image4.jpeg" class="photo" alt="photo4">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="zoom-up" src="images/image5.jpeg" class="photo" alt="photo5">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="zoom-down" src="images/image6.jpeg" class="photo" alt="photo6">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="zoom-in" src="images/image7.jpeg" class="photo" alt="photo7">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="zoom-down" src="images/image8.jpeg" class="photo" alt="photo8">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="fade-right" src="images/image1.jpeg" style="margin-top: -4%;margin-left: -10%" class="photo" alt="photo9">
+  <img data-aos-duration="1000" data-aos-once="false" data-aos="fade-left" src="images/image9.jpeg" class="photo" alt="photo10">
 
   <!-- Grand cœur rouge central -->
   <div class="center-heart" onclick="showPopup()">❤️</div>
 </div>
 <!-- Message Popup -->
 <div class="popup" id="popup">
-    <div class="popup-content">
+    <div class="popup-content"data-aos-duration="1000" data-aos-once="false" data-aos="fade-up">
       <h2>Mademoiselle Gole Fidèle Messie,<br>veux-tu être ma copine ? 💖</h2>
       <div class="buttons">
-        <button class="btn btn-yes" onclick="goToWhatsApp('oui')">
+        <button data-aos-duration="1000" data-aos-once="false" data-aos="fade-left" class="btn btn-yes" onclick="goToWhatsApp('oui')">
             <i class="fas fa-hand-point-up icon yes"></i>
             Oui
           </button>
-          <button class="btn btn-no" onclick="goToWhatsApp('non')">
+          <button data-aos-duration="1000" data-aos-once="false" data-aos="fade-right" class="btn btn-no" onclick="goToWhatsApp('non')">
             <i class="fas fa-hand-point-up icon no"></i>
             Non
           </button>
@@ -214,5 +217,9 @@
       </script>
       
 
-</body>
+</body><script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
 </html>
